@@ -6,7 +6,7 @@ const cors = require("cors");
 // const bcrypt = require('bcrypt');
 const Products = require('./models/product');
 const { register, login } = require('./controllers/userController');
-const Todo = require('./models/todo');
+// const Todo = require('./models/todo');
 
 let app = express();
 app.use(express.json());
@@ -66,68 +66,68 @@ mongoose.connect('mongodb+srv://abhishek708158:EcGUlZJYDvR8UoGd@myshop.uasaj.mon
   })
 
 
-  app.post('/todo',(req,res)=>{
-    const {text}= req.body;
-    const newTodo =  new Todo({
-      text
-    })
-    newTodo.save()
-    .then(resp=>{
-      res.send("success")
-    })
-    .catch(err=>{
-      res.send('failed')
-    })
-  })
+  // app.post('/todo',(req,res)=>{
+  //   const {text}= req.body;
+  //   const newTodo =  new Todo({
+  //     text
+  //   })
+  //   newTodo.save()
+  //   .then(resp=>{
+  //     res.send("success")
+  //   })
+  //   .catch(err=>{
+  //     res.send('failed')
+  //   })
+  // })
 
-  // red
-  app.get('/todo',(req,res)=>{
-    // const {text}= req.body;
-    // const newTodo =  new Todo({
-    //   text
-    // })
-    Todo.find({})
-    .then(resp=>{
-      res.json({data:resp})
-    })
-    .catch(err=>{
-      res.send('failed')
-    })
-  })
+  // // red
+  // app.get('/todo',(req,res)=>{
+  //   // const {text}= req.body;
+  //   // const newTodo =  new Todo({
+  //   //   text
+  //   // })
+  //   Todo.find({})
+  //   .then(resp=>{
+  //     res.json({data:resp})
+  //   })
+  //   .catch(err=>{
+  //     res.send('failed')
+  //   })
+  // })
 
-  // delete
-  app.post('/todo/:id',(req,res)=>{
-    const {id}= req.params;
-    // const newTodo =  new Todo({
-    //   text
-    // })
-    console.log(id);
-    Todo.findByIdAndDelete({_id:id})
-    .then(resp=>{
-      res.send("success")
-    })
-    .catch(err=>{
-      res.send('failed')
-    })
-  })
+  // // delete
+  // app.post('/todo/:id',(req,res)=>{
+  //   const {id}= req.params;
+  //   // const newTodo =  new Todo({
+  //   //   text
+  //   // })
+  //   console.log(id);
+  //   Todo.findByIdAndDelete({_id:id})
+  //   .then(resp=>{
+  //     res.send("success")
+  //   })
+  //   .catch(err=>{
+  //     res.send('failed')
+  //   })
+  // })
 
-  // update
+  // // update
 
-  app.post('/todo/:id',(req,res)=>{
-    const {id}= req.params;
-    const {text}=req.body;
+  // app.post('/todo/:id',(req,res)=>{
+  //   const {id}= req.params;
+  //   const {text}=req.body;
 
-    const newTodo =  new Todo({
-      text
-    })
-    Todo.findByIdAndUpdate({_id:id},{$set, newTodo})
-    .then(resp=>{
-      res.send("success")
-    })
-    .catch(err=>{
-      res.send('failed')
-    })
-  })
+  //   const newTodo =  new Todo({
+  //     text
+  //   })
+  //   Todo.findByIdAndUpdate({_id:id},{$set, newTodo})
+  //   .then(resp=>{
+  //     res.send("success")
+  //   })
+  //   .catch(err=>{
+  //     res.send('failed')
+  //   })
+  // })
   
   app.listen(4000, () => {
     console.log("server is running on port 4000");
