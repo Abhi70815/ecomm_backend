@@ -21,6 +21,10 @@ mongoose.connect('mongodb+srv://abhishek708158:EcGUlZJYDvR8UoGd@myshop.uasaj.mon
     console.log("Database is not connected", err.message);
   });
 
+  app.get('/',(req,res)=>{
+    res.send("hello")
+  })
+
   app.post('/register', register);
   app.post('/login',login);
   // app.get('/products', (req, res) => {
